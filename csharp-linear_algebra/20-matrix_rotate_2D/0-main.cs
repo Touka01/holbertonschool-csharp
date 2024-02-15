@@ -1,24 +1,23 @@
 using System;
-using static MatrixMath;
-class Test
+
+class Program
 {
-    static public void Main(String[] args)
+    static void Main(string[] args)
     {
-        double[,] m = { { 1, 2 }, { 3, 4 } };
-        var res = MatrixMath.Rotate2D(m, 1.57);
-        int i = 0;
+        double[,] matrix = { { 1, 2 }, { 3, 4 } };
+        double[,] result;
         
-        
-        foreach(var elem in res){
-            if (i % 2 == 0){
-                Console.Write("(");
+        result = MatrixMath.Rotate2D(matrix, 2);
+
+        for (int i = 0; i < result.GetLength(0); i++)
+        {
+            for (int j = 0; j < result.GetLength(1); j++)
+            {
+                Console.Write(result[i, j]);
+                if (j != result.GetLength(1) - 1)
+                    Console.Write(", ");
             }
-            Console.Write(" " + elem + " ");
-            i += 1;
-            if (i % 2 == 0){
-                Console.Write(")");
-                Console.WriteLine();
-            }
+            Console.WriteLine();
         }
     }
 }
